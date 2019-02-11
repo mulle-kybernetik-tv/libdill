@@ -245,6 +245,7 @@ int dill_chbroadcast(int h, const void *val, size_t len, int64_t deadline) {
         }
         memcpy(chcl->val, val, len);
         dill_trigger(&chcl->cl, 0);
+        dill_yield(); /* guarantee context switch */
     }
     /* fail at the the end if we have any */
     if( have_fails)
