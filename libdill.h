@@ -293,6 +293,11 @@ DILL_EXPORT int dill_chsend(
     const void *val,
     size_t len,
     int64_t deadline);
+DILL_EXPORT int dill_chbroadcast(
+    int ch,
+    const void *val,
+    size_t len,
+    int64_t deadline);
 DILL_EXPORT int dill_chrecv(
     int ch,
     void *val,
@@ -313,6 +318,7 @@ DILL_EXPORT int dill_choose(
 #define chmake dill_chmake
 #define chmake_mem dill_chmake_mem
 #define chsend dill_chsend
+#define chbroadcast dill_chbroadcast 
 #define chrecv dill_chrecv
 #define chdone dill_chdone
 #define choose dill_choose
